@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1200px;
+            height: 800px;
+            border: 1px solid red;
+        }
+
+        .canvas_container {
+            margin-left: 100px;
+            margin-top: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            线条
+        </div>
+        <canvas width="1000" height="600" class="canvas_container" id="canvas1" />
+    </div>
+</body>
+
+<script>
+    const canvas = document.getElementById('canvas1')   
+    const ctx = canvas.getContext('2d');
+
+    // 绘制一条直线
+    function drwaLine() {
+        ctx.beginPath(); // 开始新的路径
+        ctx.moveTo(50, 50); // 移动到起始点
+        ctx.lineTo(400, 50); // 画线
+        ctx.stroke();
+    }
+
+    // 绘制一个三角形
+    function drawTriangle() {
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(200, 100);
+        ctx.lineTo(150, 200);
+        ctx.closePath(); // 自动闭合路径
+        ctx.stroke();
+        ctx.fill(); // 填充
+    }
+
+    drwaLine();
+    drawTriangle();
+
+</script>
+</html>

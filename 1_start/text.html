@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1200px;
+            height: 800px;
+            border: 1px solid red;
+        }
+
+        .canvas_container {
+            margin-left: 100px;
+            margin-top: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            文本
+        </div>
+        <canvas width="1000" height="600" class="canvas_container" id="canvas1" />
+    </div>
+</body>
+
+<script>
+    const canvas = document.getElementById('canvas1')   
+    const ctx = canvas.getContext('2d');
+
+    // 绘制文本框
+    function drwaLine(text,x, y, width) {
+        ctx.beginPath(); // 开始新的路径
+        ctx.font = '24px serif'; // 设置样式
+        if(width) {
+            ctx.fillText(text, x, y, width)
+        } else {
+            ctx.fillText(text, x, y)
+        }
+        
+    };
+
+    drwaLine('我的小可爱', 200, 200,40);
+
+</script>
+</html>

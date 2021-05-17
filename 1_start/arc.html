@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+        .canvas_container {
+            margin-left: 100px;
+            margin-top: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            
+        </div>
+        <canvas width="1000" height="600" class="canvas_container" id="canvas1">
+            
+        </canvas>
+    </div>
+</body>
+
+<script>
+
+    const canvas = document.getElementById('canvas1')   
+    const ctx = canvas.getContext('2d');
+
+    // 绘制圆弧
+    setTimeout(() => {
+        ctx.arc(100, 100, 90, 0, Math.PI * 0.9, true);
+        ctx.fill();
+    }, 500);
+
+    // 绘制弧形
+    setTimeout(() => {
+        ctx.beginPath();
+
+        // 指定绘制路径的起点
+        ctx.moveTo(20,150);
+
+        // 绘制一条到坐标(70,150)的水平直线  当前端点
+        ctx.lineTo(70,150);
+
+        // 第一控制点(480,150)  第二控制点(480,400)  半径为300 两个控制点一样是因为两点在一条直线上
+        ctx.arcTo(480,150,480,400,100);
+        ctx.lineTo(480,500);
+
+        // 设置线条的颜色为蓝色
+        ctx.strokeStyle = 'blue';
+
+        // 描边
+        ctx.stroke();
+
+    }, 1000);
+
+</script>
+</html>

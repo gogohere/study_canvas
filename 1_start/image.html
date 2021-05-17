@@ -9,7 +9,6 @@
         .container {
             width: 1200px;
             height: 800px;
-            margin: 0 auto;
             border: 1px solid red;
         }
 
@@ -22,38 +21,26 @@
 </head>
 <body>
     <div class="container">
-        <div>
-            
+        <div style="text-align: center;">
+            图片
         </div>
-        <canvas width="1000" height="600" class="canvas_container" id="canvas1">
-
-        </canvas>
+        <canvas width="1000" height="600" class="canvas_container" id="canvas1" />
     </div>
 </body>
 
 <script>
-
     const canvas = document.getElementById('canvas1')   
     const ctx = canvas.getContext('2d');
-    // 创建矩形区域
-    ctx.fillRect(0, 0, 100, 200);
 
-    // 清除一片矩形区域
-    setTimeout(() => {
-        ctx.clearRect(0, 0, 50, 50);
-    }, 500)
+    // 绘制一条直线
+    function insertImage(src,x,y,width=null,height=null) {
+        const image = new Image();
+        image.onload = () => {
+            ctx.drawImage(image,x,y,width,height);
+        };
+        image.src = src;
+    }
 
-    // 矩形线框
-    setTimeout(() => {
-        ctx.strokeRect(200,200,50,50);
-    }, 500);
-
-    // 绘制圆弧
-    setTimeout(() => {
-        ctx.arc(400, 0, 90, 0, Math.PI * 0.9, true); // 方法1
-        ctx.arcTo(600, 0, )
-        ctx.fill();
-    }, 500);
-
+    insertImage('https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3016956244,1448700328&fm=26&gp=0.jpg',100,100,100,200);
 </script>
 </html>
